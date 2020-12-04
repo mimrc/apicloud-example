@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widget id="A6016639421222" version="0.0.1">
+    <name>tabLayout示例</name>
+    <content src="index.json"/>
+    <preference name="pageBounce" value="true"/>
+    <preference name="appBackground" value="#FFF"/>
+    <preference name="debug" value="true"/>
+    <preference name="statusBarAppearance" value="true"/>
+    <access origin="*"/>
+</widget>

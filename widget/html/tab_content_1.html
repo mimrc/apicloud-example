@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>窗口系统</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/box.css" />
+    <script src="../script/public.js"></script>
+        <style>
+        	body{
+        		background: #FCFCFC;
+        		display:-webkit-box;
+				-webkit-box-orient:vertical;
+				-webkit-box-pack:center;
+        	}
+        </style>
+    </head>
+    <body>
+    	<div class="info-area">
+    		<h2>page1<h2>
+    	</div>
+        <div class="clickbtn" tapmode onclick="api.closeWin()" >关闭窗口</div>
+        <div class="clickbtn" tapmode="active" onclick="setTabBarItemDot()" >显示角标红点</div>
+    </body>
+    <script>
+        function apiready(){
+            api.addEventListener({
+                name:'tabitembtn'
+            }, function(ret) {
+                console.log('点击了第'+(ret.index+1)+'项');
+                api.setTabBarAttr({
+                    index: ret.index
+                });
+            });
+    	}
+    
+        function setTabBarItemDot(){
+            api.setTabBarItemAttr({
+                index: 2,
+                badge: {
+                    text: '',
+                    radius: 5,
+                    x: 8
+                }
+            });
+        }
+    </script>
+</html>

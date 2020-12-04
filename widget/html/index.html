@@ -1,0 +1,170 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, initial-scale=1.0, width=device-width"/>
+    <meta name="format-detection" content="telephone=no, email=no, date=no, address=no">
+    <title>窗口系统</title>
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../css/box.css" />
+    </head>
+    
+    <body >
+        <div id="wrap">
+        	<div class='row'>
+        		<div tapmode='active' class='clickitem' onclick="openNavWin()">打开只有Nav窗口</div>
+        	</div>
+            <div class='row'>
+                <div tapmode='active' class='clickitem' onclick="openTabWin()">打开只有Tab窗口</div>
+            </div>
+            <div class='row'>
+                <div tapmode='active' class='clickitem' onclick="openNavTabWin()">打开Nav-Tab窗口</div>
+            </div>
+            <div class='row'>
+                <div tapmode='active' class='clickitem' onclick="openWin()">打开普通窗口</div>
+            </div>
+        </div>
+    </body>
+    <script>
+    
+    	apiready = function(){
+            
+    	}
+
+		function openNavWin(){
+			var param = {
+				name: 'nav',
+				url: './main_content.html',
+                bgColor: '#fff',
+				title: `<a>123123</a>`,
+			  	navigationBar: {
+                    rightButtons: [{
+                        iconPath: "widget://image/more.png"
+                    }]
+                }
+			}
+			api.openTabLayout(param);
+		}
+		
+		function openTabWin(){
+			var param = {
+				name: 'tab',
+                title: 'tabBar',
+				bgColor:'#fff',
+                slidBackEnabled: false,
+				tabBar: {
+			    	animated: true,
+			    	list: [
+			    		{
+			      			text: "微信",
+                            iconPath: "widget://image/nav_tab_1.png",
+			      			selectedIconPath: "widget://image/nav_tab_1_on.png"
+			    		}, {
+			      			text: "通讯录",
+			      			iconPath: "widget://image/nav_tab_2.png",
+			      			selectedIconPath: "widget://image/nav_tab_2_on.png"
+			    		}, {
+			      			text: "发现",
+			      			iconPath: "widget://image/nav_tab_3.png",
+			      			selectedIconPath: "widget://image/nav_tab_3_on.png"
+			    		}, {
+			      			text: "我",
+			      			iconPath: "widget://image/nav_tab_4.png",
+			      			selectedIconPath: "widget://image/nav_tab_4_on.png"
+			    		}
+			    	],
+			    	frames: [
+						{
+							title: "微信",//tab切换时对应的标题
+							name: "tab_frm_1",
+							url: "./tab_content_1.html",
+							//其他继承自openFrame的参数
+						}, {
+							title: "通讯录",
+							name: "tab_frm_2",
+							url: "./tab_content_2.html"
+							//其他继承自openFrame的参数
+						}, {
+							title: "发现",
+							name: "tab_frm_3",
+							url: "./tab_content_3.html"
+							//其他继承自openFrame的参数
+						}, {
+							title: "我",
+							name: "tab_frm_4",
+							url: "./tab_content_4.html"
+							//其他继承自openFrame的参数
+						}
+					]
+			  	}
+			}
+			api.openTabLayout(param);
+		}
+		
+        function openNavTabWin(){
+            var param = {
+                name: 'nav-tab',
+                title:'nav-tab',
+                bgColor:'#fff',
+                slidBackEnabled: false,
+                navigationBar: {
+                    hideBackButton: true
+                },
+                tabBar: {
+                    animated: true,
+                    list: [
+                        {
+                            text: "微信",
+                            iconPath: "widget://image/nav_tab_1.png",
+                            selectedIconPath: "widget://image/nav_tab_1_on.png"
+                        }, {
+                            text: "通讯录",
+                            iconPath: "widget://image/nav_tab_2.png",
+                            selectedIconPath: "widget://image/nav_tab_2_on.png"
+                        }, {
+                            text: "发现",
+                            iconPath: "widget://image/nav_tab_3.png",
+                            selectedIconPath: "widget://image/nav_tab_3_on.png"
+                        }, {
+                            text: "我",
+                            iconPath: "widget://image/nav_tab_4.png",
+                            selectedIconPath: "widget://image/nav_tab_4_on.png"
+                        }
+                    ],
+                    frames: [
+                        {
+                            title: "微信",//tab切换时对应的标题
+                            name: "tab_frm_1",
+                            url: "widget://html/tab_content_1.html",
+                            //其他继承自openFrame的参数
+                        }, {
+                            title: "通讯录",
+                            name: "tab_frm_2",
+                            url: "widget://html/tab_content_2.html"
+                            //其他继承自openFrame的参数
+                        }, {
+                            title: "发现",
+                            name: "tab_frm_3",
+                            url: "widget://html/tab_content_3.html"
+                            //其他继承自openFrame的参数
+                        }, {
+                            title: "我",
+                            name: "tab_frm_4",
+                            url: "widget://html/tab_content_4.html"
+                            //其他继承自openFrame的参数
+                        }
+                    ]
+                }
+            }
+            api.openTabLayout(param);
+        }
+		
+        function openWin(){
+            api.openWin({
+                name:'win',
+                url:'./normal/winb.html'
+            });
+        }
+    </script>
+
+</html>
