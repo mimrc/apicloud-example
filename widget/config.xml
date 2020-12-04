@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<widget id="A6016639421222" version="0.0.1">
+<widget id="A60147322908792019" version="0.0.1">
     <name>tabLayout示例</name>
     <content src="index.json"/>
     <preference name="pageBounce" value="true"/>
